@@ -1,0 +1,27 @@
+Python 3.10.2 (tags/v3.10.2:a58ebcc, Jan 17 2022, 14:12:15) [MSC v.1929 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+import requests
+from bs4 import BeautifulSoup
+import csv
+
+url = "https://www.altnews.in/topics/narendra-modi/"
+headers = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                  "AppleWebKit/537.36 (KHTML, like Gecko) "
+                  "Chrome/113.0.0.0 Safari/537.36"
+}
+
+response = requests.get(url, headers=headers)
+soup = BeautifulSoup(response.text, "html.parser")
+
+articles = soup.find_all("h2", class_="jeg_post_title")
+
+with open("modi_lies.csv", "w", newline="", encoding="utf-8") as csvfile:
+    writer = csv.writer(csvfile)
+    writer.writerow(["Title"])
+
+    for article in articles:
+        title = article.get_text(strip=True)
+        writer.writerow([title])
+
+print("Data saved to modi_lies.csv")
