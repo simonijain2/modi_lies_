@@ -4,7 +4,7 @@ import requests
 from bs4 import BeautifulSoup
 import csv
 
-url = "https://www.altnews.in/topics/narendra-modi/"
+url = "https://timesofindia.indiatimes.com/india/no-such-article-has-ever-been-carried-out-govt-fact-checks-fake-post-with-toi-logo/articleshow/121206724.cms"
 headers = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
                   "AppleWebKit/537.36 (KHTML, like Gecko) "
