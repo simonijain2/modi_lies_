@@ -1,7 +1,6 @@
 from bs4 import BeautifulSoup
 import csv
 
-# Simulated HTML (you can replace this with actual web scraping later)
 html = """
 <html>
 <body>
